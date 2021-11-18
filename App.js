@@ -25,6 +25,7 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={Tabs}
+         
         />
         <Stack.Screen
           name="CryptoDetail"
