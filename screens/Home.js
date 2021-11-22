@@ -9,6 +9,7 @@ import {
     ScrollView,
     FlatList
 } from 'react-native';
+import {PriceAlert} from '../component'
 import {COLORS , FONTS , dummyData , SIZES , icons , images} from '../constants';
 
 const Home = ({ navigation }) => {
@@ -95,7 +96,7 @@ const Home = ({ navigation }) => {
                     style={styles.balance}
                 >
                     <Text style={{color :COLORS.white ,...FONTS.h3}}>Your Portfolio Balance</Text>
-                    <Text style={{color : COLORS.white , ...FONTS.h1}}>$ {dummyData.portfolio.balance}</Text>
+                    <Text style={{color : COLORS.white , marginVertical : 10 , ...FONTS.h1}}>$ {dummyData.portfolio.balance}</Text>
                     <Text style={{color:COLORS.white , ...FONTS.body5}}>{dummyData.portfolio.changes} Last 24 hours</Text>
 
                 </View>
@@ -115,10 +116,16 @@ const Home = ({ navigation }) => {
             </View>
         )
     }
+    const renderPriceAlert = ()=>{
+        return(
+            <PriceAlert/>
+        )
+    }
     return (
         <ScrollView>
             <View style={{flex : 1 , paddingBottom : 130}}>
                 {renderHeader()}
+                {renderPriceAlert()}
             </View>
         </ScrollView>
     )
