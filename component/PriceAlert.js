@@ -5,7 +5,8 @@ import {icons , SIZES , COLORS , FONTS} from '../constants'
 const PriceAlert = () => {
     return (
         <TouchableOpacity
-            style={[styles.touch , styles.shoddow]}        
+            style={[styles.touch , styles.shoddow]} 
+            onPress={()=>console.log('price action')}       
         >
             <Image 
                 source={icons.notification_color}

@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import {
     StyleSheet,
     View,
@@ -7,14 +7,20 @@ import {
     ImageBackground,
     Image,
     ScrollView,
-    FlatList
+    FlatList,
+    LogBox,
+    
 } from 'react-native';
-import {PriceAlert} from '../component'
+import {PriceAlert , TransactionHistory} from '../component'
 import {COLORS , FONTS , dummyData , SIZES , icons , images} from '../constants';
 
 const Home = ({ navigation }) => {
     const [trending , setTrending] = useState(dummyData.trendingCurrencies)
+    const [transactionHistory , setTransactionHistory] = useState(dummyData.transactionHistory)
 
+    useEffect(()=>{
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
+    },[])
     const renderItem = ({item , index})=>(
         <TouchableOpacity
             style={{
@@ -41,7 +47,7 @@ const Home = ({ navigation }) => {
                     resizeMode="contain" source={item.image}/>
                 </View>
                 <View style={{marginLeft : SIZES.base}}>
-                    <Text style={{...FONTS.h2}}>{item.currency}</Text>
+                    <Text style={{...FONTS.h2 , color:COLORS.black}}>{item.currency}</Text>
                     <Text style={{color : COLORS.gray , ...FONTS.body3}}>{item.code}</Text>
                 </View>
 
@@ -80,7 +86,7 @@ const Home = ({ navigation }) => {
                     }}
                 >
                     <TouchableOpacity
-                        onPress={()=>alert('notifycation')}
+                        onPress={()=>console.log('notifycation')}
                         style={{
                             width : 35,
                             height : 35,
@@ -121,11 +127,44 @@ const Home = ({ navigation }) => {
             <PriceAlert/>
         )
     }
+    const renderNotif = ()=>{
+        return(
+            <View style={{
+                backgroundColor : COLORS.white,
+                padding : 20,
+                marginHorizontal : 13,
+                borderRadius : 7,
+                marginTop : SIZES.padding - 10,
+                ...styles.shadow,
+                backgroundColor : COLORS.secondary
+
+            }}>
+                <Text style={{...FONTS.h3 , color : COLORS.white}}>Investing Safty</Text>
+                <Text style={{...FONTS.body5 , color : COLORS.white}}> Its very deficult to time an investement , 
+                Its very deficult to time an investement an your payout ,
+                Its very deficult to time an investement an your coinst payment
+                </Text>
+                <TouchableOpacity>
+                    <Text style={{textDecorationLine:'underline' ,color:COLORS.green}}>Learn More</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+    const renderTransactionHistory = ()=>{
+        return(
+            <TransactionHistory
+                customStylesComponent={styles.shadow}
+                history={transactionHistory}
+            />
+        )
+    }
     return (
         <ScrollView>
             <View style={{flex : 1 , paddingBottom : 130}}>
                 {renderHeader()}
                 {renderPriceAlert()}
+                {renderNotif()}
+                {renderTransactionHistory()}
             </View>
         </ScrollView>
     )
