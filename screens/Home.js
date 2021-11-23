@@ -34,6 +34,7 @@ const Home = ({ navigation }) => {
                 backgroundColor :COLORS.white,
                 ...styles.shadow
             }}
+            onPress={()=>navigation.navigate('CryptoDetail' , {currency : item})}
         >
             {/* currency */}
             <View style={{flexDirection:'row'}}>
@@ -54,7 +55,7 @@ const Home = ({ navigation }) => {
             </View>
             {/* value */}
             <View style={{marginTop : SIZES.base}}>
-                <Text style={{...FONTS.h2}}>${item.amount}</Text>
+                <Text style={{...FONTS.h2 , color:COLORS.grey}}>${item.amount}</Text>
                 <Text style={{...FONTS.body5 , color: item.type === 'I' ? 
                     COLORS.green: COLORS.red
                 }}>{item.changes}</Text>

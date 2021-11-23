@@ -17,7 +17,7 @@ const PriceAlert = () => {
                 }}
             />
             <View>
-                <Text style={{...FONTS.h3}}>Set Price Alert</Text>
+                <Text style={{...FONTS.h3 , color:COLORS.black}}>Set Price Alert</Text>
                 <Text style={{...FONTS.body5}}>get notifed when your coins are moing</Text>
             </View>
             <Image

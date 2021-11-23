@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 
-import { Home } from "../screens"
+import { Home  , CryptoDetail} from "../screens"
 import { COLORS, FONTS, icons } from "../constants"
 import LinearGradient from 'react-native-linear-gradient'; 
 
@@ -52,7 +52,7 @@ const Tabs = () => {
                     elevation :0,
                     backgroundColor : COLORS.white,
                     borderTopColor : "transparent",
-                    height : 80
+                    height : 60
                 }
           }}
         >
@@ -64,8 +64,8 @@ const Tabs = () => {
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
                             <Image source={icons.home}
                                 style={{
-                                    width :30,
-                                    height : 30,
+                                    width :20,
+                                    height : 20,
                                     tintColor : focused?COLORS.primary :
                                     COLORS.black
                                 }}
@@ -84,8 +84,8 @@ const Tabs = () => {
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
                             <Image source={icons.pie_chart}
                                 style={{
-                                    width :30,
-                                    height : 30,
+                                    width :20,
+                                    height : 20,
                                     tintColor : focused?COLORS.primary :
                                     COLORS.black
                                 }}
@@ -125,8 +125,8 @@ const Tabs = () => {
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
                             <Image source={icons.line_graph}
                                 style={{
-                                    width :30,
-                                    height : 30,
+                                    width :20,
+                                    height : 20,
                                     tintColor : focused?COLORS.primary :
                                     COLORS.black
                                 }}
@@ -145,8 +145,8 @@ const Tabs = () => {
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
                             <Image source={icons.settings}
                                 style={{
-                                    width :30,
-                                    height : 30,
+                                    width :20,
+                                    height : 20,
                                     tintColor : focused?COLORS.primary :
                                     COLORS.black
                                 }}

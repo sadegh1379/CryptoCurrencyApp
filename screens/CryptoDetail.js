@@ -3,19 +3,25 @@ import {
     StyleSheet,
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    SafeAreaView , 
+    Animated , 
+    Image
 } from 'react-native';
+import { HeaderBar } from '../component';
+import {icons , SIZES , COLORS , FONTS} from '../constants';
+
 
 const CryptoDetail = ({ navigation }) => {
     return (
-        <View style={styles.container}>
-            <Text>CryptoDetail</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Transaction")}
-            >
-                <Text>Navigate to Transaction</Text>
-            </TouchableOpacity>
-        </View>
+        <SafeAreaView
+            style={{
+                flex :1,
+                backgroundColor : COLORS.lightGray1
+            }}
+        >
+        <HeaderBar right={true}/>
+        </SafeAreaView>
     )
 }
 
