@@ -11,11 +11,12 @@ import {
 } from 'react-native';
 import { HeaderBar , CurrencyLabel } from '../component';
 import {icons , SIZES , COLORS , FONTS} from '../constants';
-
+import { VictoryChart , VictoryAxis , VictoryScatter , VictoryLine} from 'victory-native'
+import {VictoryCustomTheme} from '../styles'
 
 const CryptoDetail = ({route ,  navigation }) => {
     const [selectedCurrency , setSelectedCurrency] = useState(null)
-
+    const ScrollX = 
     useEffect(()=>{
         setSelectedCurrency(route.params.currency)
     },[])
@@ -42,7 +43,7 @@ const CryptoDetail = ({route ,  navigation }) => {
                     />
                 </View>
                 <View>
-                    <Text style={{...FONTS.h3}}>{selectedCurrency?.amount}</Text>
+                    <Text style={{...FONTS.h3 , color:COLORS.black}}>{selectedCurrency?.amount}</Text>
                     <Text style={{
                         ...FONTS.body4,
                         color : selectedCurrency?.type == "I" ? COLORS.green : COLORS.red
@@ -50,6 +51,60 @@ const CryptoDetail = ({route ,  navigation }) => {
                 </View>
             </View>
             {/* chart */}
+            <View
+                style={{
+                    marginTop : -30
+                }}
+            >
+                <VictoryChart
+                    theme={VictoryCustomTheme}
+                    height={220}
+                    width={SIZES.width - 40 }
+                >
+                    <VictoryLine
+                        style={{
+                            data:{
+                                stroke: COLORS.secondary
+                            },
+                            parent:{
+                                border : "1px solid #ccc"
+                            }  
+                        }}
+                        data={selectedCurrency?.chartData}
+                        categories={{
+                            x :["15 MIN" , "30 MIN" , "45 MIN" , "60 MIN"],
+                            y : ["15" , "30" , "45"]
+                        }}
+                    />
+                    <VictoryScatter
+                        data={selectedCurrency?.chartData}
+                        size={5}
+                        style={{
+                            data:{
+                                fill : COLORS.secondary
+                            }
+                        }}
+                    />
+                    <VictoryAxis
+                        style={{
+                            grid : {
+                                stroke : "transparent"
+                            }
+                        }}
+                    />
+                    <VictoryAxis
+                        dependentAxis
+                        style={{
+                            axis:{
+                                stroke:"transparent"
+                            },
+                            grid:{
+                                stroke : "grey"
+                            }
+                        }}
+                    />
+                </VictoryChart>
+            </View>
             {/* options */}
             {/* dots */}
             </View>
