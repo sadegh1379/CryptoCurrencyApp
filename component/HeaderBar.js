@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 const HeaderBar = ({right}) => {
   const navigation = useNavigation();
   return (
-    <View style={{flexDirection: 'row', padding: SIZES.base}}>
+    <View style={{flexDirection: 'row', padding: SIZES.base + 3}}>
       <View>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
