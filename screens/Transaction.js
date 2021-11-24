@@ -36,10 +36,10 @@ const Transaction = ({route, navigation}) => {
         {/* amount */}
         <View style={{alignItems: 'center', marginVertical: SIZES.base}}>
           <Text style={{color: COLORS.black, ...FONTS.h2}}>
-            {selectedCurrency?.wallet.value} {selectedCurrency?.code}
+            {selectedCurrency?.wallet.crypto} {selectedCurrency?.code}
           </Text>
           <Text style={{...FONTS.body4, color: COLORS.gray}}>
-            {selectedCurrency?.wallet.crypto}
+            ${selectedCurrency?.wallet.value}
           </Text>
         </View>
         {/* trade */}
@@ -63,7 +63,7 @@ const Transaction = ({route, navigation}) => {
     );
   };
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1}}>
       <HeaderBar />
       <ScrollView
         showsVerticalScrollIndicator={false}

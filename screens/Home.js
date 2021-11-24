@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
                 paddingHorizontal : SIZES.padding,
                 paddingVertical : SIZES.padding,
                 marginBottom : 5,
-                marginLeft : index == 0 ? SIZES.padding : 0,
+                marginLeft : index == 0 ? SIZES.radius : 0,
                 marginRight : SIZES.radius,
                 borderRadius : 10,
                 backgroundColor :COLORS.white,
