@@ -123,7 +123,7 @@ const CryptoDetail = ({route, navigation}) => {
           horizontal
           pagingEnabled
           scrollEventThrottle={16}
-          snapToAlignment="start"
+          snapToAlignment="canter"
           snapToInterval={SIZES.width - 40}
           showsHorizontalScrollIndicator={false}
           decelerationRate={0}
@@ -270,7 +270,7 @@ const CryptoDetail = ({route, navigation}) => {
             width : '100%',
             marginTop : SIZES.padding
           }}
-          onPress={()=>navigation.navigate('Transaction',{currency : selectedCurrency})}
+          onPress={()=>navigation.navigate('Transaction_s',{currency : selectedCurrency})}
         />
       </View>
     )

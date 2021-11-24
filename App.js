@@ -32,7 +32,7 @@ const App = () => {
           component={CryptoDetail}
         />
         <Stack.Screen
-          name="Transaction"
+          name="Transaction_s"
           component={Transaction}
         />
       </Stack.Navigator>
