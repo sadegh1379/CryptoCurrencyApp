@@ -9,8 +9,8 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {HeaderBar, CurrencyLabel} from '../component';
-import {icons, SIZES, COLORS, FONTS} from '../constants';
+import {HeaderBar, CurrencyLabel, TextButton} from '../component';
+import {icons, SIZES, COLORS, FONTS, dummyData} from '../constants';
 import {
   VictoryChart,
   VictoryAxis,
@@ -21,11 +21,18 @@ import {VictoryCustomTheme} from '../styles';
 
 const CryptoDetail = ({route, navigation}) => {
   const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [chartOptions , setChartOptions] = useState(dummyData.chartOptions)
+  const [selectedOptions , setSelectedOptions] = useState(dummyData.chartOptions[0])
+
   const ScrollX = new Animated.Value(0);
   const numberOfCharts = [1, 2, 3];
   useEffect(() => {
     setSelectedCurrency(route.params.currency);
   }, []);
+
+  const handleSelectOption = (option)=>{
+    setSelectedOptions(option)
+  }
 
   const renderChart = () => {
     return (
@@ -133,8 +140,32 @@ const CryptoDetail = ({route, navigation}) => {
             </View>
           ))}
         </Animated.ScrollView>
-
         {/* options */}
+        <View style={{width:'100%' , 
+         flexDirection:'row' , justifyContent:'space-between',
+         alignItems:'center' , 
+         paddingHorizontal : SIZES.padding
+        }}> 
+        {
+          chartOptions.map((op)=>(
+            <TextButton
+              key={`chart-option-${op.id}`}
+              label={op.label}
+              customBtnStyle={{
+                  height : 30 ,          
+                  width : 60,
+                  borderRadius : 15,
+                  backgroundColor : selectedOptions.id === op.id ? COLORS.primary : COLORS.lightGray
+              }}
+              customLabelStyle={{
+                color : selectedOptions.id === op.id ? COLORS.white : COLORS.gray,
+                ...FONTS.body5
+              }}
+              onPress={()=>handleSelectOption(op)}
+            />
+          ))
+        }
+        </View>
         {/* dots */}
       </View>
     );
