@@ -2,10 +2,10 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity , Image } from 'react-native';
 import {icons , SIZES , COLORS , FONTS} from '../constants'
 
-const PriceAlert = () => {
+const PriceAlert = ({customContainerStyle}) => {
     return (
         <TouchableOpacity
-            style={[styles.touch , styles.shoddow]} 
+            style={[styles.touch , styles.shoddow ,customContainerStyle]} 
             onPress={()=>console.log('price action')}       
         >
             <Image 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         paddingHorizontal : SIZES.padding,
         paddingVertical : SIZES.padding,
         backgroundColor : COLORS.white,
-        marginHorizontal : 15,
+        marginHorizontal : SIZES.radius,
         borderRadius : 7,
 
 
