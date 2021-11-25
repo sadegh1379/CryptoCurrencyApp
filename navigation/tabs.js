@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 
-import { Home  , CryptoDetail} from "../screens"
+import { Home  , CryptoDetail , Portfolio, Transaction_T, Prices, Settings} from "../screens"
 import { COLORS, FONTS, icons } from "../constants"
 import LinearGradient from 'react-native-linear-gradient'; 
 
@@ -78,7 +78,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Portfolio"
-                component={Home}
+                component={Portfolio}
                 options={{
                     tabBarIcon:({focused})=>(
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
@@ -98,7 +98,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Transaction"
-                component={Home}
+                component={Transaction_T}
                 options={{
                     tabBarIcon : ({focused})=>(
                       <Image
@@ -119,7 +119,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Prices"
-                component={Home}
+                component={Prices}
                 options={{
                     tabBarIcon:({focused})=>(
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
@@ -139,7 +139,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Settings"
-                component={Home}
+                component={Settings}
                 options={{
                     tabBarIcon:({focused})=>(
                         <View style={{justifyContent:'center' , alignItems:'center'}}>
